@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import List
 
-from army_builder.core.domain.unit import Unit
+from army_builder.domain.unit import Unit
 
 
 @dataclass

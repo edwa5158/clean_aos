@@ -1,4 +1,4 @@
-from army_builder.core.domain.army import Army
+from army_builder.domain.army import Army
 
 
 class LoadArmyRequest:
