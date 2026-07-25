@@ -17,6 +17,6 @@ def load_army_use_case(repo, request: LoadArmyRequest) -> Army:
     try:
         army = repo.get_army_by_name(request.army_name)
     except Exception as e:
-        raise ValueError(e)
+        raise ValueError(e) from None
 
     return army
