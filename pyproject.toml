@@ -9,6 +9,12 @@ dependencies = []
 [dependency-groups]
 dev = ["pytest>=9.1.1", "pytest-cov>=7.1.0", "ruff>=0.16.0"]
 
+[tool.pytest.ini_options]
+markers = [
+    "architecture: enforces an architectural rule against real project code",
+    "meta: verifies the architecture test machinery itself",
+]
+
 [tool.ruff.lint]
 select = [
     "E",   # pycodestyle errors
