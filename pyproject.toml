@@ -7,7 +7,12 @@ requires-python = ">=3.13"
 dependencies = []
 
 [dependency-groups]
-dev = ["pytest>=9.1.1", "pytest-cov>=7.1.0", "ruff>=0.16.0"]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.16.0",
+    "ty>=0.0.63",
+]
 
 [tool.pytest.ini_options]
 markers = [

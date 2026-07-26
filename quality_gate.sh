@@ -7,14 +7,20 @@ echo ""
 uv run ruff format .
 
 echo ""
-echo "Type Checking"
+echo "Linting"
 echo "-------------------------------------------------------------------"
 echo ""
 uv run ruff check .
 
 echo ""
+echo "Type Checking"
+echo "-------------------------------------------------------------------"
+echo ""
+uv run ty check .
+
+
+echo ""
 echo "Running Tests"
 echo "-------------------------------------------------------------------"
 echo ""
-uv run pytest
-
+uv run pytest -rs

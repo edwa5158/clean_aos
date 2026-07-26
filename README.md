@@ -16,7 +16,7 @@ an inner layer must never know anything about what surrounds it.
 | `domain/` | stdlib only |
 | `use_cases/` | `domain` + stdlib |
 | `serializers/` | `domain` + stdlib |
-| `repository/` *(future)* | `domain` + `use_cases` + stdlib + its driver (`sqlite3`, …) |
+| `repository/` | `domain` + `use_cases` + stdlib + its driver (`sqlite3`, …) |
 | `ui/` *(future)* | `use_cases`, `serializers`, `domain` |
 
 Nothing imports `ui/`.
@@ -33,8 +33,9 @@ as an import in either direction.
 army_builder/
 ├── domain/       # entities: Unit, Regiment, Army. Invariants live here.
 ├── use_cases/    # one function per business action; repos passed in
-└── serializers/  # JSONEncoder subclasses; domain → JSON at the boundary
-tests/            # mirrors the package layout
+├── serializers/  # JSONEncoder subclasses; domain → JSON at the boundary
+└── repository/   # MemRepo, JsonRepo — storage in, domain objects out
+tests/            # mirrors the package layout, plus tests/architecture/
 ```
 
 ## Commands
