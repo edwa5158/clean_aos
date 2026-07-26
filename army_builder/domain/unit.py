@@ -10,7 +10,6 @@ class Unit:
     code: uuid.UUID
     name: str
     is_hero: bool = False
-    is_general: bool = False
 
     @classmethod
     def from_dict(cls, d) -> Unit:

@@ -16,7 +16,7 @@ an inner layer must never know anything about what surrounds it.
 | `domain/` | stdlib only |
 | `use_cases/` | `domain` + stdlib |
 | `serializers/` | `domain` + stdlib |
-| `repository/` *(future)* | `domain` + stdlib + its driver (`sqlite3`, …) |
+| `repository/` *(future)* | `domain` + `use_cases` + stdlib + its driver (`sqlite3`, …) |
 | `ui/` *(future)* | `use_cases`, `serializers`, `domain` |
 
 Nothing imports `ui/`.
