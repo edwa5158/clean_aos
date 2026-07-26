@@ -1,5 +1,6 @@
 from army_builder.domain.unit import Unit
 
+
 class MemRepo:
     def __init__(self, entries: list[dict]):
         self.entries = entries
