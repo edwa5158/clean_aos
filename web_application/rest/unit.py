@@ -12,7 +12,7 @@ FILE_PATH = "./data_store/units.json"
 
 
 @blueprint.route("/units", methods=["GET"])
-def unit_list():
+def unit_list() -> Response:
     repo = JsonRepo(FILE_PATH)
     result = unit_list_use_case(repo)
 

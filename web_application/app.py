@@ -4,7 +4,7 @@ import web_application.config as APP_CONFIG
 from web_application.rest import unit
 
 
-def create_app(config_name):
+def create_app(config_name: str) -> Flask:
 
     app = Flask(__name__)
 

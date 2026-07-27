@@ -1,6 +1,6 @@
 import os
 
-basedir = os.path.abspath(os.path.dirname(__file__))
+basedir: str = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
@@ -18,4 +18,4 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     """Testing Configuration"""
 
-    TESTING = True
+    TESTING: bool = True
