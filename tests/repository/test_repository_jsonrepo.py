@@ -2,12 +2,12 @@ import json
 
 import pytest
 
-from army_builder.domain.unit import Unit
+from army_builder.domain.warscroll import Warscroll
 from army_builder.repository.jsonrepo import JsonRepo
 
 
 @pytest.fixture
-def unit_dicts() -> list[dict]:
+def warscroll_dicts() -> list[dict]:
     return [
         {
             "code": "f853578c-fc0f-4e65-81b8-566c5dffa35a",
@@ -33,21 +33,21 @@ def unit_dicts() -> list[dict]:
 
 
 @pytest.fixture
-def create_scratch_file(tmp_path, unit_dicts):
+def create_scratch_file(tmp_path, warscroll_dicts):
     target = tmp_path / "example.json"
 
     with open(target, "w", encoding="utf-8") as f:
-        json.dump(unit_dicts, f, indent=4)
+        json.dump(warscroll_dicts, f, indent=4)
 
     assert target.exists()
     return target
 
 
-def test_json_repository_list_without_parameters(create_scratch_file, unit_dicts):
+def test_json_repository_list_without_parameters(create_scratch_file, warscroll_dicts):
     repo = JsonRepo(create_scratch_file)
-    units = [Unit.from_dict(dict) for dict in unit_dicts]
+    warscrolls = [Warscroll.from_dict(dict) for dict in warscroll_dicts]
 
-    assert repo.list() == units
+    assert repo.list() == warscrolls
 
 
 @pytest.mark.skip(reason="`test_json_repository_with_missing_file` behaviour undecided")

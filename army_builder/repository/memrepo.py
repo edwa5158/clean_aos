@@ -1,9 +1,11 @@
-from army_builder.domain.unit import Unit
+from army_builder.domain.warscroll import Warscroll
 
 
 class MemRepo:
     def __init__(self, entries: list[dict]):
-        self.units = entries
+        self.warscrolls = entries
 
-    def list(self) -> list[Unit]:
-        return [Unit.from_dict(unit_dict) for unit_dict in self.units]
+    def list(self) -> list[Warscroll]:
+        return [
+            Warscroll.from_dict(warscroll_dict) for warscroll_dict in self.warscrolls
+        ]

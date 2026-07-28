@@ -1,7 +1,7 @@
 from flask import Flask
 
 import web_application.config as APP_CONFIG
-from web_application.rest import unit
+from web_application.rest import warscroll
 
 
 def create_app(config_name: str) -> Flask:
@@ -12,6 +12,6 @@ def create_app(config_name: str) -> Flask:
 
     app.config.from_object(config_module)
 
-    app.register_blueprint(unit.blueprint)
+    app.register_blueprint(warscroll.blueprint)
 
     return app

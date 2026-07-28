@@ -4,16 +4,15 @@ import dataclasses
 import uuid
 from dataclasses import dataclass
 
-from army_builder.domain.warscroll import Warscroll
-
 
 @dataclass
-class Unit:
+class Warscroll:
     code: uuid.UUID
-    warscroll: Warscroll
+    name: str
+    is_hero: bool = False
 
     @classmethod
-    def from_dict(cls, d) -> Unit:
+    def from_dict(cls, d) -> Warscroll:
         return cls(**d)
 
     def to_dict(self) -> dict:

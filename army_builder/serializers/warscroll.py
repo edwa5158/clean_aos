@@ -1,10 +1,10 @@
 import json
 
-from army_builder.domain.unit import Unit
+from army_builder.domain.warscroll import Warscroll
 
 
-class UnitJsonEncoder(json.JSONEncoder):
-    def default(self, o: Unit):
+class WarscrollJsonEncoder(json.JSONEncoder):
+    def default(self, o: Warscroll):
         try:
             to_serialize = o.to_dict()
             for key in ["code"]:

@@ -1,11 +1,11 @@
 import pytest
 
-from army_builder.domain.unit import Unit
+from army_builder.domain.warscroll import Warscroll
 from army_builder.repository.memrepo import MemRepo
 
 
 @pytest.fixture
-def unit_dicts() -> list[dict]:
+def warscroll_dicts() -> list[dict]:
     return [
         {
             "code": "f853578c-fc0f-4e65-81b8-566c5dffa35a",
@@ -30,8 +30,8 @@ def unit_dicts() -> list[dict]:
     ]
 
 
-def test_repository_list_without_parameters(unit_dicts):
-    repo = MemRepo(unit_dicts)
-    units = [Unit.from_dict(dict) for dict in unit_dicts]
+def test_repository_list_without_parameters(warscroll_dicts):
+    repo = MemRepo(warscroll_dicts)
+    warscrolls = [Warscroll.from_dict(dict) for dict in warscroll_dicts]
 
-    assert repo.list() == units
+    assert repo.list() == warscrolls
