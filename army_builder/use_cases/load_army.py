@@ -1,18 +1,5 @@
-from typing import Protocol
-
 from army_builder.domain.army import Army
-
-
-class ArmyReaderRepo(Protocol):
-    def list(self) -> list[Army]: ...
-
-    def get_army_by_name(self, army_name: str) -> Army: ...
-
-
-class ArmyWriterRepo(Protocol):
-    def delete(self, army_name: str) -> Army: ...
-
-    def save(self, army_name: str) -> Army: ...
+from army_builder.use_cases.repositories import ArmyReaderRepo
 
 
 class LoadArmyRequest:
@@ -22,6 +9,10 @@ class LoadArmyRequest:
 
     def __bool__(self) -> bool:
         return len(self.errors) == 0
+
+
+class ListArmyRequest:
+    pass
 
 
 def load_army_use_case(repo: ArmyReaderRepo, request: LoadArmyRequest) -> Army:
@@ -34,3 +25,7 @@ def load_army_use_case(repo: ArmyReaderRepo, request: LoadArmyRequest) -> Army:
         raise ValueError(e) from None
 
     return army
+
+
+def list_armies_use_case(repo: ArmyReaderRepo, request: ListArmyRequest) -> list[Army]:
+    raise NotImplementedError
